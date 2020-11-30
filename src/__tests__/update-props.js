@@ -13,7 +13,7 @@ const NumberDisplay = ({number}) => {
 
   return (
     <div>
-      <span data-testid="number-display">{number}</span>
+      <span data-testid="number-display" role='span'>{number}</span>
       <span data-testid="instance-id">{id.current}</span>
     </div>
   )
@@ -21,8 +21,8 @@ const NumberDisplay = ({number}) => {
 
 test('calling render with the same component on the same container does not remount', () => {
   const {rerender} = render(<NumberDisplay number={1} />)
-  expect(screen.getByTestId('number-display')).toHaveTextContent('1')
-
+  expect(screen.getByRole('span')).toHaveTextContent('1')
+  
   // re-render the same component with different props
   rerender(<NumberDisplay number={2} />)
   expect(screen.getByTestId('number-display')).toHaveTextContent('2')

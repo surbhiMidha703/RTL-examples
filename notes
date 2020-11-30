@@ -1,0 +1,14 @@
+getByRole - uses role with <span/> element
+        getByRole('span')
+
+
+getByLabelText - to get the text for label.
+
+userEvent - can have click, type, upload etc.
+                userEvent.click(screen.getByText('💣'))
+
+getByText - helps to check, if the element having this text is there in the DOM
+        expect(screen.getByText(/chucknorris\.png/)).toBeInTheDocument()
+
+getByTextId - to get element based on ID.
+         expect(screen.getByTestId('number-display')).toHaveTextContent('2')
